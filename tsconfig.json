@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "./src", // Chỉ định thư mục chứa mã nguồn
+    "outDir": "./dist", // Thư mục đầu ra khi biên dịch (tùy chọn)
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts"], // Chỉ include các file .ts trong src
+  "exclude": ["node_modules"]
+}
