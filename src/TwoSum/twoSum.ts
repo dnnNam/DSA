@@ -24,9 +24,11 @@ export function twoSum(nums: number[], target: number): number[] {
   for (let i = 0; i < nums.length; i++) {
     const complement = target - nums[i]; // số còn thiếu để đạt target
     if (numIndices[complement] !== undefined) {
+      // kiểm tra xem trong numIndices có lưu phần tử đó hay chưa nếu có thì return
       return [numIndices[complement], i];
     }
-    // lưu giá trị hiện tại vào đối tượng với key và giá trị
+    // lưu giá trị hiện tại vào đối tượng với key và giá trị  numIndices[2] = 1 là vị trí 1 có giá trị là 2
+    // chỉ cần gõ không cần gán , tự tạo ngăn lưu giá trị và vị trí vô luôn
     numIndices[nums[i]] = i;
   }
   return []; // trả về mảng rỗng nếu khồng tìm thấy
