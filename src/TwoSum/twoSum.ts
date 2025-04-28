@@ -48,3 +48,25 @@ export function twoSum2(nums: number[], target: number): number[] {
   }
   return [];
 }
+
+// cách này dùng map khá tương tự với record
+// nhưng so sánh  tốc độ truy cập đơn giản record là object thường  nhanh hơn map một chút
+// nhưng map ổn định hơn khi
+// dữ liệu lớn (nhiều phần tử)
+// khóa key không phải luôn là  string  hay number (ví dụ object làm key)
+export function twoSum3(nums: number[], target: number): number[] {
+  const map = new Map<number, number>(); // tạo 1 map lưu các số được xét rồi
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+    if (map.has(complement)) {
+      return [map.get(complement)!, i]; // muốn lấy giá trị đổi i thành nums[i] tương tự với record
+      // dấu chấm ! giúp khẳng định biến đó không phải là undefined hoặc là null
+      // giúp typeScript bỏ qua kiểm tra lỗi null/ undefined
+      // dùng khi bạn biêt chắc chắn nó đã tồn tại rồi
+    }
+
+    map.set(nums[i], i); // lưu các giá trị đã kiểm tra
+  }
+  return [];
+}
