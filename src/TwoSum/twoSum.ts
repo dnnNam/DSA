@@ -33,3 +33,18 @@ export function twoSum(nums: number[], target: number): number[] {
   }
   return []; // trả về mảng rỗng nếu khồng tìm thấy
 }
+
+// cách thứ 2 code dễ hiểu hơn nhưng time complexity sẽ là O(n^2) rất chậm nếu mảng dài
+
+export function twoSum2(nums: number[], target: number): number[] {
+  // tạo 2 dòng for
+  // nums = [2,7,11,15]  , xét 2  cộng với tất cả các số từ 2 trở đi nếu bằng target lập tức return vị trí
+  for (let i = 0; i <= nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return [];
+}
