@@ -19,3 +19,22 @@ export function isPalindrome2(x: number): boolean {
   }
   return x === reversed || x === Math.floor(reversed / 10); // ví dụ 12 == 12 nếu  như 12 với 123 thì Math.floor(reversed / 10) làm tròn
 }
+
+// cách thứ 3 băng cách so sánh chữ số từ ngoài vào trong mà không cần đảo chuổi
+
+export function isPalindrome3(x: number): boolean {
+  if (x < 0) return false; // nếu số âm không kiểm tra
+
+  const digits = x.toString(); // biến thành chuỗi để dễ truy cập theo index để so sánh
+  let left = 0; // kiểm tra từ đầu index bây giờ là 0
+  let right = digits.length - 1; // kiểm từ dưới lên
+
+  // điều kiện đẻ kiểm tra
+  while (left < right) {
+    if (digits[left] !== digits[right]) return false;
+    left++;
+    right--;
+  }
+  // nếu kiểm tra mà bằng nhau thì
+  return true;
+}
