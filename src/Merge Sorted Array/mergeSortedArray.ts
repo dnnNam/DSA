@@ -23,3 +23,40 @@
 // Explanation: The arrays we are merging are [] and [1].
 // The result of the merge is [1].
 // Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+
+// ví dụ
+//  let nums1 = [1, 2, 3, 0, 0, 0];   m = 3, có 3 phần tử hợp lệ và 3 phần tử là 0
+// let nums2 = [2, 5, 6];            n = 3, 3 phần tử cần chèn vào nums1
+// kết quả phải là [1,2,2,3,5,6]
+
+// yêu cầu gộp nums1 và nums2 thành một mảng duy nhất sắp xếp theo thứ tự không giảm (tăng dần)
+// mảng xếp cuối cùng không cho hàm trả về thay vào đó lưu trữ vào mảng 1
+
+export function merge(
+  nums1: number[],
+  m: number,
+  nums2: number[],
+  n: number
+): void {
+  let i = m - 1; // i = 3-1 = 2 chỉ vào phần tử cuối cùng của phần hợp lệ trong nums1 (nums1[2] = 3)
+  let j = n - 1; // j = 3-1 = 2 chỉ vào phần tử cuối cùng trong nums[2]
+  let k = m + n - 1; // k = 3 + 3  -1 = 5 , chỉ vào phần tử cuối cùng trong nums1 (nums1[5] = 0)
+
+  // bắt đầu vòng lặp so sánh và chèn
+  // có nhiệm vụ so sánh các phần tử nums1 nums2 nếu giá trị bên nào lớn hơn sẽ được ghi đè xuống cuối của mảng 1
+  // lưu ý mảng này đã được sắp xếp
+  while (i >= 0 && j >= 0) {
+    if (nums1[i] > nums2[j]) {
+      // nếu như mà phần tử cuối của mảng 1 lớn hơn mảng 2 thì ta chèn xuống cuốis
+      nums1[k] = nums1[i];
+      i--; // nums1 giảm xuống
+    } else {
+      nums1[k] = nums2[j];
+      j--; // nums2 giảm xuống
+    }
+    k--;
+  }
+  // sau khi kết thúc vòng lặp trên kết quả sẽ là nums1 = [1, 2, 3, 3, 5, 6];
+
+  // vòng while này có nhiệm vụ đảm bảo các phần tử nums2 được nhét vào nums1
+}
