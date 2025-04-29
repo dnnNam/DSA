@@ -57,6 +57,11 @@ export function merge(
     k--;
   }
   // sau khi kết thúc vòng lặp trên kết quả sẽ là nums1 = [1, 2, 3, 3, 5, 6];
-
   // vòng while này có nhiệm vụ đảm bảo các phần tử nums2 được nhét vào nums1
+  // j lúc này bằng 0 còn phần tử nums2[0] = 2 chưa được nhét vào nums1
+  while (j >= 0) {
+    nums1[k] = nums2[j];
+    j--; //  hết phần tử trong nums2
+    k--; // chỉ số của nums1 giảm xuống
+  }
 }
