@@ -4,11 +4,19 @@ import {
   isPalindrome2,
   isPalindrome3,
 } from "./Palindrome Number/palindromeNumber";
-import { mergeAlternately } from "./Merge Strings Alternately/mergeStringsAlternately";
+import {
+  mergeAlternately,
+  mergeAlternately2,
+} from "./Merge Strings Alternately/mergeStringsAlternately";
 const nums = [2, 7, 11, 15];
 const target = 9;
 // console.log(twoSum3(nums, target));
 
 // console.log(mergeAlternately("ab", "pqrs"));
 
-console.log(isPalindrome3(10001));
+// console.log(isPalindrome3(10001));
+
+let word1 = "abc";
+let word2 = "defgh";
+
+console.log(mergeAlternately2(word1, word2));
